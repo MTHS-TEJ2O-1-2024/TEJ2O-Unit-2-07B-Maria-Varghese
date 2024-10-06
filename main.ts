@@ -5,25 +5,16 @@
  * This program shows the cookie numbers
 */
 
-// our cookie numbers
-let cookieNumber: number
-
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
-input.onButtonPressed(Button.A, function(){
-    // get cookieNumber
-    cookieNumber= cookieNumber + 1
-
-    //output answer
-    basic.showNumber(0 + 1)
-
-})
-
-input.onButtonPressed(Button.B, function () {
-    // get cookieNumber
-    cookieNumber = 0
-
-    //output answer
-    basic.showNumber(0)
+let cookieNumber = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+        cookieNumber = cookieNumber + 1
+        basic.showNumber(cookieNumber)
+    } else if (input.buttonIsPressed(Button.B)) {
+        cookieNumber = 0
+        basic.showNumber(cookieNumber)
+    }
 })
